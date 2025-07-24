@@ -60,5 +60,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Author
 
 Hridey Dalal  
-B.Tech Computer Science, Sharda University  
 LinkedIn: https://www.linkedin.com/in/hridey-
