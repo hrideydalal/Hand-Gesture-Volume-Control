@@ -1,63 +1,121 @@
 # Hand Gesture Volume Control
 
-This project enables users to control their computer's volume using hand gestures detected via a webcam. It uses OpenCV and MediaPipe for real-time hand tracking, and PyCaw for system volume control (Windows only).
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Built With](https://img.shields.io/badge/Tech-OpenCV%20%7C%20MediaPipe%20%7C%20PyCaw-blue)
 
-## Features
+Control your system volume using simple **hand gestures** via webcam. This real-time computer vision project uses **OpenCV + MediaPipe** for hand tracking and **PyCaw** for system-level audio control on Windows.
 
-- Real-time hand detection using webcam
-- Volume control by measuring distance between thumb and index finger
-- Volume bar and FPS counter overlay on screen
-- Visual feedback when volume is adjusted
-- Works with one hand, includes pinky finger check for confirmation
+---
 
-## Technologies Used
+## ✨ Features
 
-- Python
-- OpenCV
-- MediaPipe
-- NumPy
-- PyCaw
-- comtypes (for COM interfacing)
+- 🖐️ Real-time hand detection using webcam
+- 🔊 Adjust system volume by changing distance between **thumb and index finger**
+- 🔒 Safety confirmation using pinky finger (only adjusts when pinky is down)
+- 📊 On-screen volume bar and FPS counter
+- 🧠 Works entirely hands-free with visual feedback
 
-## File Structure
+---
+
+## 🛠️ Tech Stack
+
+| Component        | Technology             |
+|------------------|-------------------------|
+| Hand Tracking    | MediaPipe               |
+| Image Processing | OpenCV, NumPy           |
+| Volume Control   | PyCaw, comtypes (Windows) |
+| Language         | Python 3.8+             |
+
+---
+
+## 📁 Project Structure
 
 ```
 hand-gesture-volume-control/
-├── volumeControl.py           # Main script for gesture-based volume control
-├── HandTrackingModule.py      # Helper module for hand tracking
-├── README.md                  # Project documentation
-├── .gitignore
-└── LICENSE
+├── volumeControl.py           # Main script with hand detection & volume logic
+├── HandTrackingModule.py      # Reusable hand tracking helper class
+├── .gitignore                 # Python cache/files to ignore
+├── LICENSE                    # MIT License
+└── README.md                  # Project documentation
 ```
 
-## How to Run
+---
 
-1. Make sure Python is installed and a webcam is available.
-2. Install required packages:
+## 📦 Installation
+
+### ✅ Prerequisites
+
+- Python 3.8 or higher
+- A webcam (built-in or external)
+- Windows OS (PyCaw works only on Windows)
+
+### 🧪 Install Dependencies
 
 ```bash
 pip install opencv-python mediapipe numpy pycaw comtypes
 ```
 
+---
+
+## 🚀 How to Run
+
+1. Clone or download the repository
+2. Ensure your webcam is connected
 3. Run the script:
 
 ```bash
 python volumeControl.py
 ```
 
-Note: If the webcam does not open, try changing `cv2.VideoCapture(0)` to `cv2.VideoCapture(1)` in the code.
+> ℹ️ If webcam doesn't open, try changing this line in `volumeControl.py`:
 
-## Acknowledgments
+```python
+cap = cv2.VideoCapture(0)  ➝  cap = cv2.VideoCapture(1)
+```
 
-- MediaPipe Hand Tracking: https://mediapipe.dev/
-- PyCaw (Python Core Audio Windows Library): https://github.com/AndreMiras/pycaw
-- Based on a learning project from ComputerVision.Zone
+---
 
-## License
+## 🔍 How It Works
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+- The webcam detects your hand using MediaPipe.
+- Distance between **thumb tip and index tip** is calculated in real time.
+- When **pinky is lowered**, the measured distance is mapped to system volume levels.
+- A **volume bar**, **percentage**, and **FPS** are rendered on the screen.
 
-## Author
+---
 
-Hridey Dalal  
-LinkedIn: https://www.linkedin.com/in/hridey-
+## 📸 Demo (Optional)
+
+> You can add demo images/GIFs in a `docs/` folder here.
+
+---
+
+## 📌 To-Do / Enhancements
+
+- [ ] Add audio feedback on volume change
+- [ ] Cross-platform volume control (Linux/Mac)
+- [ ] GUI with volume slider
+- [ ] Hand gesture toggle (enable/disable volume mode)
+
+---
+
+## 🙏 Acknowledgments
+
+- [MediaPipe](https://mediapipe.dev/) for real-time hand tracking  
+- [PyCaw](https://github.com/AndreMiras/pycaw) for system volume control  
+- Inspired by projects from [ComputerVision.Zone](https://www.computervision.zone/)
+
+---
+
+## 👤 Author
+
+**Hridey Dalal**  
+📧 [hrideydalal1@gmail.com](mailto:hrideydalal1@gmail.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/hridey-/)
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
